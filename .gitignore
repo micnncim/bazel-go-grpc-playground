@@ -1,0 +1,13 @@
+# Bazel
+/bazel-bin
+/bazel-genfiles
+/bazel-bazel-go-grpc-playground
+/bazel-out
+/bazel-testlogs
+
+# Go
+/vendor
+
+# Generated proto go files
+*.pb.go
+*.pb.validate.go
