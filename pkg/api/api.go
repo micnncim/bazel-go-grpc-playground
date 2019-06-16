@@ -14,7 +14,7 @@ func NewServer() pb.EchoAPIServer {
 }
 
 func (s *server) Echo(ctx context.Context, req *pb.EchoRequest) (*pb.EchoResponse, error) {
-	log.Printf("received: %s\n", req.Message)
+	log.Printf("received request: %s\n", req.Message)
 	return &pb.EchoResponse{
 		Message: req.Message,
 	}, nil
