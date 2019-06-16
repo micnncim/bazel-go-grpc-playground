@@ -10,7 +10,7 @@ build:
 
 .PHONY: test
 test:
-	bazel test
+	bazel test //pkg/... //server/... //client/...
 
 .PHONY: gazelle
 gazelle:
