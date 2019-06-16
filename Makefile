@@ -28,3 +28,6 @@ server:
 client:
 	bazel run //client
 
+.PHONY: expose-generated-go
+expose-generated-go:
+	./hack/expose-generated-go.sh micnncim bazel-go-grpc-playground
