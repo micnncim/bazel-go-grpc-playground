@@ -6,11 +6,11 @@ dep:
 
 .PHONY: build
 build:
-	bazel build //server //client
+	bazel build //...
 
 .PHONY: test
 test:
-	bazel test //pkg/... //server/... //client/...
+	bazel test //...
 
 .PHONY: gazelle
 gazelle:
