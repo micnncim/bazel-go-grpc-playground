@@ -3,7 +3,7 @@ load(
     "http_archive",
 )
 
-# go
+### go
 
 http_archive(
     name = "io_bazel_rules_go",
@@ -24,7 +24,7 @@ go_rules_dependencies()
 
 go_register_toolchains()
 
-# gazelle
+### gazelle
 
 http_archive(
     name = "bazel_gazelle",
@@ -40,7 +40,7 @@ load(
 
 gazelle_dependencies()
 
-# buildifier
+### buildifier
 
 http_archive(
     name = "com_github_bazelbuild_buildtools",
@@ -55,6 +55,29 @@ load(
 )
 
 buildifier_dependencies()
+
+### Docker
+
+http_archive(
+    name = "io_bazel_rules_docker",
+    sha256 = "e513c0ac6534810eb7a14bf025a0f159726753f97f74ab7863c650d26e01d677",
+    strip_prefix = "rules_docker-0.9.0",
+    urls = ["https://github.com/bazelbuild/rules_docker/releases/download/v0.9.0/rules_docker-v0.9.0.tar.gz"],
+)
+
+load(
+    "@io_bazel_rules_docker//repositories:repositories.bzl",
+    container_repositories = "repositories",
+)
+
+container_repositories()
+
+load(
+    "@io_bazel_rules_docker//go:image.bzl",
+    _go_image_repos = "repositories",
+)
+
+_go_image_repos()
 
 go_repository(
     name = "co_honnef_go_tools",
