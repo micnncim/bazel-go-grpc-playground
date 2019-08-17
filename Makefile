@@ -1,16 +1,16 @@
+.PHONY: build
+build:
+	bazel build //...
+
+.PHONY: test
+test:
+	bazel test //...
+
 .PHONY: dep
 dep:
 	GO111MODULE=on go mod tidy
 	GO111MODULE=on go mod vendor
 	bazel run //:gazelle -- update-repos -from_file=go.mod
-
-.PHONY: build
-build:
-	bazel build //server //client
-
-.PHONY: test
-test:
-	bazel test //pkg/... //server/... //client/...
 
 .PHONY: gazelle
 gazelle:
